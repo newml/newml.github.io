@@ -13,7 +13,7 @@ tags:
 - jekyll
 ---
 
-### Configuration
+### Configuration:
 All configuration options are in the <code>_config.yml</code> file.
 
 <figure>
