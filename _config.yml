@@ -57,7 +57,7 @@ defaults:
 
 # Serving
 url: "https://newml.github.io"
-baseurl: ""
+baseurl: "/"
 
 # Includes
 include: ["_pages"]
