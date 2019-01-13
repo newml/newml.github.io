@@ -2,7 +2,7 @@
 name: Андрей Ильин
 job_title: Data Engineer / Data Scientist
 email: ilyin100@gmail.com
-description: I build great products at Google, currently Google Maps. I also enjoy capturing moments with my camera and discovering new music. Follow me Twitter or drop me a line.
+description: Сделал Лабораторный Кластер в Сбербанке. Основной стек >> Hadoop, Spark, Yarn, Hive, PosgreSQL, MongoDB, Kafka, Python (pyspark, keras, pandas, sklearn, beautifulsoup, flask)
 avatar: /docs/me1.jpg
 favicon: /favicon.ico
 twitter_handler: your_handler
