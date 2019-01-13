@@ -2,9 +2,14 @@
 layout: post
 date: 2019-01-12 23:00
 title:  "Шпаргалка по разметке в постах в этом блоге"
-mood: happy
+mood: speechless
 category: 
 - docs
+- help
+tags:
+- minihint
+- post
+- jekyll
 ---
 
 Markdown (or Textile), Liquid, HTML & CSS go in. Static sites come out ready for deployment. <!--more-->
