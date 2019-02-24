@@ -1,36 +1,41 @@
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
 
-    <title>{% if page.title %}{{ page.title | escape }} |{% endif %} {{ site.name | escape }} {% if site.job_title %}&mdash; {{site.job_title | escape }} {% endif %}</title>
-    <meta property="og:title" content="{% if page.title %}{{ page.title | escape }} |{% endif %} {{ site.name | escape }} {% if site.job_title %}&mdash; {{site.job_title | escape }} {% endif %}" />
-    <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }} |{% endif %} {{ site.name | escape }} {% if site.job_title %}&mdash; {{site.job_title | escape }} {% endif %}" />
+{% include seo.html %}
 
-    <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-    <meta name="description" property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
-    <meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
+<link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 
-    <meta name="twitter:card" content="summary_large_image" />
-    {% if site.twitter_handler %}
-    <meta name="twitter:site" content="@{{site.twitter_handler}}" />
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+{% if site.head_scripts %}
+  {% for script in site.head_scripts %}
+    {% if script contains "://" %}
+      {% capture script_path %}{{ script }}{% endcapture %}
+    {% else %}
+      {% capture script_path %}{{ script | relative_url }}{% endcapture %}
     {% endif %}
-    <meta property="og:url" content="{{page.url | prepend: site.baseurl | prepend: site.url}}" />
-
-    <meta property="og:image" content="" />
-    <meta name="twitter:image" content="" />
-
-    <meta name="author" content="{{site.name}}" />
-
-    <meta name="copyright" content="Copyright by {{site.name}}. All Rights Reserved." />
-
-    {% include fonts.html %}
-    {% if {{site.favicon != blank}} %}
-    <link href="{{ site.favicon }}" rel="shortcut icon" type="image/x-icon" />
-    {% endif %}
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl | prepend: site.url}}">
-
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
-</head>
+    <script src="{{ script_path }}"></script>
+  {% endfor %}
+{% endif %}
