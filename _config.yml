@@ -79,3 +79,5 @@ sass:
   sass_dir: assets/partials
   style: compressed
 
+
+theme: jekyll-theme-cayman
