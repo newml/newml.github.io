@@ -1,63 +1,81 @@
-# Site Info
-title: Codinfox Lanyon
-tagline: 'A Jekyll theme based on Lanyon'
-description: 'A Jekyll theme adapted from <a href="http://lanyon.getpoole.com/" target="_blank">Lanyon</a>. Made by <a href="http://codinfox.github.io" target="_blank">@codinfox</a>.'
-baseurl: "/lanyon"
-url: http://codinfox.github.io
-logo: '/public/logo.png'
+# General Settings
+name: Андрей Ильин
+job_title: Data Engineer / Data Scientist
+email: ilyin100@gmail.com
+description: Сделал Лабораторный Кластер в Сбербанке. Мой основной стек >> Hadoop, Spark, Yarn, Hive, PosgreSQL, MongoDB, Kafka, Python (pyspark, keras, pandas, sklearn, beautifulsoup, flask)
+avatar: /docs/me1.jpg
+favicon: /favicon.ico
+twitter_handler: your_handler
+analytics_code: UA-XXXXXXX-2
+disqus: your_disqus_site
 
-# Site configurations
-gems:
-  - jekyll-paginate
+# Social Accounts
+social_networks:
+-  { name: facebook, url: 'http://facebook.com/andrey.ilin.750' }
+-  { name: twitter, url: '' }
+-  { name: instagram, url: '' }
+-  { name: google-plus, url: '' }
+-  { name: linkedin, url: '' }
+-  { name: skype, url: '' }
+-  { name: github, url: '' }
+-  { name: codepen, url: '' }
+-  { name: stack-overflow, url: '' }
+-  { name: dribbble, url: '' }
+-  { name: behance, url: '' }
+-  { name: pinterest, url: '' }
+-  { name: tumblr, url: '' }
+-  { name: youtube, url: '' }
+-  { name: vimeo, url: '' }
+-  { name: vine, url: '' }
+-  { name: 500px, url: '' }
+-  { name: flickr, url: '' }
+-  { name: spotify, url: '' }
+-  { name: steam, url: '' }
+-  { name: wordpress, url: '' }
+-  { name: xing, url: '' }
+-  { name: bitcoin, url: '' }
+-  { name: pocket, url: '' }
+-  { name: applemusic, url: '' }
+
+# Modules Settings
+show_categories: 1
+show_tags: 1
+show_email: 1
+show_rss: 0
+show_comments: 1
+show_menu: 1
+fixed_sidebar: 1
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      comments: "true"
+
+# Serving
+url: "https://newml.github.io"
+baseurl: ""
+
+# Includes
+include: ["_pages"]
+
+# Outputting
+permalink: /:categories/:title.html
+category_dir: categories
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# Conversion
 markdown: kramdown
-kramdown:
-  input: GFM
-excerpt_separator: "<!-- more -->"
+excerpt_separator: <!--more-->
+
+# Assets Settings
 sass:
+  sass_dir: assets/partials
   style: compressed
-  sass_dir: _scss    
-paginate: 5
-paginate_path: '/blog/page:num'
-permalink: pretty
-
-version: 1.0.0
-
-# About/contact
-author:
-  name: Codinfox
-  description: A passionate <strong>developer and researcher</strong>, learning to be a giant.
-  gravatar: 3c2986ad7ac1f2230ea3596f44563328 # md5 hash of your email address
-  contact:
-    linkedin:  https://www.linkedin.com/in/lizhihao
-    github:    https://github.com/codinfox
-    # facebook:  <hide>
-    twitter:   https://twitter.com/Li_Zhihao
-    weibo:     http://weibo.com/41173780
-    email:     http://www.google.com/recaptcha/mailhide/d?k=01I3lZFiZYng9N3QxYEtsDaQ==&c=31wAnZkuKqcG0ATAqJN8Z3ln5kkYLA9TwkGc-IbygpM=
-
-# Navigation (2nd level links supported)
-nav:
-  Home:           
-    - '/'
-  Blog:           
-    - '/blog/'
-    - { Categories: '/blog/categories/' }
-    - { Tags: '/blog/tags/' }
-  About:          
-    - '/about/'
-  Github Project: 
-    - 'http://codinfox.github.io/'
-
-# Where are tags and categories displayed
-tag_page: '/blog/tags/'
-category_page: '/blog/categories/'
-
-hero:
-  image: /public/img/we_will_be_giants_by_yalestewart.jpg
-  caption: Original Artwork &copy; <a href="http://yalestewart.deviantart.com/art/We-Will-Be-Giants-370176475">Yale Stewart</a>
-
-# Puglins
-mathjax: true # whether support mathjax
-google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
-disqus_short_name: 'your_short_name' # leave blank if you don't want disqus
 

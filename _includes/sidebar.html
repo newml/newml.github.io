@@ -1,84 +1,43 @@
-<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <div class="sidebar-personal-info">
-      <div class="sidebar-personal-info-section">
-        <a href="http://gravatar.com/{{ site.author.gravatar }}">
-          <img src="http://www.gravatar.com/avatar/{{ site.author.gravatar }}?s=350" title="View on Gravatar" alt="View on Gravatar" />
-        </a>
-      </div>
-      <div class="sidebar-personal-info-section">
-        <p>{{ site.author.description }}</p>
-      </div>
-      {% if site.author.contact %}
-      {% assign len = site.author.contact | size %}
-      {% assign current_index = 0 %}
-      <div class="sidebar-personal-info-section">
-        <p> Follow me: 
-        {% for contact in site.author.contact %}
-        {% assign iconname = contact[0] %}
-        {% if contact[0] == 'email' %}
-        {% assign iconname = 'envelope' %}
-        {% endif %}
-        <a href="{{ contact[1] }}">
-          <i class="fa fa-{{ iconname }}" aria-hidden="true"></i>
-        </a>
-        {% assign current_index = current_index | plus: 1 %}
-        {% if current_index != len %}|{% endif %}
-        {% endfor %}
-        </p>
-      </div>
-      {% endif %}
+<aside class="user-profile {% if site.fixed_sidebar == 1 %}fixed{% endif %}" role="complementary">
+    <div class="burger">
+        <input class="trigger hidden" id="toggleBurger" type="checkbox" />
+        <label for="toggleBurger">
+            <span>Navigation</span>
+        </label>
     </div>
-  </div>
 
-  <nav class="sidebar-nav">
-    {% for nav in site.nav %}
-      {% assign is_relative = nav[1][0] | slice: 0 %}
-      {% assign url = nav[1][0] %}
-      {% if is_relative == '/' %}
-        {% assign url = nav[1][0] | prepend: site.baseurl %}
-      {% endif %}
+    <div class="compact-header">
+        <a class="avatar" href="{{ site.baseurl | prepend: site.url }}"><img alt="Avatar" src="{% if site.avatar %}{{site.avatar}}{% else %}{{ site.email | to_gravatar:140 }}{% endif %}" /></a>
+        <div class="my-info">
+            <strong class="my-name">{{ site.name }}</strong>
+            <span class="my-job-title">{{ site.job_title }}</span>
+        </div>
+    </div>
 
-      {% assign sub_len = nav[1] | size | minus: 1 %}
+    {% if site.show_menu == 1 %}
+        {% if site.pages %}
+        <div class="mainmenu">
+            <a href="{{ site.baseurl | prepend: site.url }}" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
+            {% for p in site.pages %}
+                {% if p.layout == 'page' %}
+                    <a href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" {% if p.url == page.url %}class="active"{% endif %}>{{ p.title }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endif %}
 
-      <span class="{% if sub_len > 0 %}foldable{% endif %}">
-        <a class="sidebar-nav-item {% if page.url == nav[1][0] %}active{% endif %}" href="{{ url }}">
-          {{ nav[0] }}
-        </a>
+    <p class="about-me">{{ site.description }}</p>
 
-        {% for i in (1..sub_len) %}
-          {% for sub_nav in nav[1][i] %}
-            {% assign sub_is_relative = sub_nav[1] | slice: 0 %}
-            {% assign sub_url = sub_nav[1] %}
-            {% if sub_is_relative == '/' %}
-              {% assign sub_url = sub_nav[1] | prepend: site.baseurl %}
-            {% endif %}
-              <a class="sidebar-nav-item sidebar-nav-item-sub {% if page.url == sub_nav[1] %}active{% endif %}" href="{{ sub_url }}">
-                {{ sub_nav[0] }}
-              </a>
-          {% endfor %}
-        {% endfor %}
-      </span>
+    <ul class="socials">
+        {% for social in site.social_networks %}{% if social.url != '' %}<li><a href="{{social.url}}"><svg title="{{social.name}}" width="16" height="16" {% if social.name == 'applemusic' %} style="margin: 0 0 0 -2px" {% endif %}><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.baseurl | prepend: site.url }}/assets/svg/social-icons.svg#{{social.name}}-icon"></use></svg></a></li>{% endif %}{% endfor %}
 
-    {% endfor %}
+        {% if site.email != blank and site.show_email == 1 %}
+            <li><a href="mailto:{{site.email}}"><svg title="{{social.name}}" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.baseurl | prepend: site.url }}/assets/svg/social-icons.svg#email-icon"></use></svg></a></li>
+        {% endif %}
 
-    <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
-  </nav>
-
-  <div class="sidebar-item">
-    <p>
-    &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. This work is liscensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
-    </p>
-  </div>
-
-  <div class="sidebar-item">
-    <p>
-    Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="http://codinfox.github.io">codinfox-lanyon</a>
-    </p>
-  </div>
-</div>
+        {% if site.show_rss == 2 %}
+         <li><a href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}"><svg title="{{social.name}}" width="16" height="16"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ site.baseurl | prepend: site.url }}/assets/svg/social-icons.svg#rss-icon"></use></svg></a></li>
+        {% endif %}
+    </ul>
+</aside>
