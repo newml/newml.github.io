@@ -107,7 +107,7 @@ analytics:
 # Site Author
 author:
   name             : "Andrey Ilin"
-  avatar           : "/images/me1.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : #"/images/me1.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an amazing person."
   location         : "Moscow, Russia"
   email            :
