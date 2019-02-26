@@ -126,10 +126,10 @@ author:
       url: "https://facebook.com/andrey.ilin750"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/newml"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://instagram.com/_steinn"
 
 # Site Footer
 footer:
@@ -139,7 +139,7 @@ footer:
       # url:
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      url: "andrey.ilin750"
+      url: "https://facebook.com/andrey.ilin750"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       # url:
